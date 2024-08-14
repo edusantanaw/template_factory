@@ -6,7 +6,7 @@ export type IReplaceableKeyEntity = {
   id: string;
 };
 
-interface Data {
+export interface IReplaceableKeyData {
   id?: string;
   type: "file" | "text";
   key: string;
@@ -19,7 +19,7 @@ export class ReplaceableKeyEntity {
   private type: KeyType;
   private key: string;
 
-  constructor(data: Data) {
+  constructor(data: IReplaceableKeyData) {
     this.id = data?.id ?? randomUUID();
     this.type = data.type;
     this.key = data.key;
