@@ -1,5 +1,9 @@
 import express from "express";
-import "reflect-metadata"
+import "reflect-metadata";
+import typeorm from "./config/typeorm";
+import env from "./config/env";
+
+env();
 
 const PORT = process.env.PORT ?? 8080;
 
@@ -16,8 +20,9 @@ class Server {
     this.app.listen(PORT, cb);
   }
 
-  public bootstrap() {
+  public async bootstrap() {
     this.middlewares();
+    await typeorm();
     this.start();
   }
 }

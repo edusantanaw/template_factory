@@ -1,4 +1,8 @@
 import { DataSource } from "typeorm";
+import env from "./env";
+import { ReplaceableKeyDbEntity, TemplateDbEntity } from "../../infra/entities";
+
+env();
 
 const HOST = process.env.DB_HOST;
 const PORT = process.env.DB_PORT;
@@ -14,8 +18,13 @@ export const AppDataSource = new DataSource({
   password: PASS,
   database: DATABASE,
   synchronize: true,
-  logging: true,
-  entities: [],
+  logging: false,
+  entities: [ReplaceableKeyDbEntity, TemplateDbEntity],
   subscribers: [],
   migrations: [],
 });
+
+export default async () => {
+  await AppDataSource.initialize();
+  console.log(`Database connected!`);
+};

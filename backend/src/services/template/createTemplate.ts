@@ -25,7 +25,9 @@ export class CreateTemplateService {
   }
 
   public async create(data: IData) {
-    const keys = data.replaceableKeys.map((e) => new ReplaceableKeyEntity(e));
+    const keys = data.replaceableKeys.map(
+      (e) => new ReplaceableKeyEntity(e).getRplaceableKeyEntity
+    );
     const path = `${this.path}/${randomUUID()}.zip`;
     const template = new TemplateEntity({
       name: data.name,

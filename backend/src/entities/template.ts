@@ -1,10 +1,10 @@
 import { randomUUID } from "node:crypto";
-import { ReplaceableKeyEntity } from "./replaceableKey";
+import { IReplaceableKeyEntity, ReplaceableKeyEntity } from "./replaceableKey";
 
 interface Data {
   name: string;
   path: string;
-  replaceableKeys: ReplaceableKeyEntity[];
+  replaceableKeys: IReplaceableKeyEntity[];
   id?: string;
 }
 
@@ -12,14 +12,14 @@ export interface ITemplateEntity {
   id: string;
   name: string;
   path: string;
-  replaceableKeys: ReplaceableKeyEntity[];
+  replaceableKeys: IReplaceableKeyEntity[];
 }
 
 export class TemplateEntity {
   private id: string;
   private name: string;
   private path: string;
-  private replaceableKeys: ReplaceableKeyEntity[];
+  private replaceableKeys: IReplaceableKeyEntity[];
 
   constructor(data: Data) {
     this.id = data?.id ?? randomUUID();
