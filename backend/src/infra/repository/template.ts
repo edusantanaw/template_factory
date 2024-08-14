@@ -22,4 +22,13 @@ export class TemplateRepository {
     });
     return templates;
   }
+
+  public async loadById(id: string) {
+    const template = await this.repository.findOne({
+      where: {
+        id,
+      },
+    });
+    return template;
+  }
 }
