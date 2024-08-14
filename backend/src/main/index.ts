@@ -2,6 +2,7 @@ import express from "express";
 import "reflect-metadata";
 import typeorm from "./config/typeorm";
 import env from "./config/env";
+import routes from "./routes";
 
 env();
 
@@ -13,6 +14,7 @@ class Server {
   private middlewares() {
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
+    this.app.use(routes());
   }
 
   private start() {
