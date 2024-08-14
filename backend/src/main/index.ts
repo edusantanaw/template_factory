@@ -1,4 +1,5 @@
 import express from "express";
+import "reflect-metadata"
 
 const PORT = process.env.PORT ?? 8080;
 
