@@ -1,9 +1,4 @@
-import { Created } from "../shared/utils/httpResponse";
-
-type IHttpResponse<T> = {
-  status: number;
-  body: T;
-};
+import { Created, IHttpResponse } from "../shared/utils/httpResponse";
 
 interface ICreateService<In, Out> {
   create: (data: In) => Promise<Out>;
