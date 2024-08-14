@@ -7,7 +7,7 @@ export default () => {
   const router = Router();
   router.post("/template", expressAdapter(createTemplateControllerFactory()));
   router.post(
-    "/template/generate/{templateId}",
+    "/template/generate/:templateId",
     expressAdapter(generateTemplateControllerFactory())
   );
   return router;

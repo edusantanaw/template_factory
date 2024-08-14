@@ -44,7 +44,7 @@ export class CreateTemplateService {
 
   private async createFile(path: string, base64: string) {
     await new Promise((resolve, reject) => {
-      fs.mkdir(path, base64, (err) => {
+      fs.writeFile(path, Buffer.from(base64, "base64"), (err) => {
         if (err) reject(err);
         else resolve(null);
       });

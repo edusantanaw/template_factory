@@ -11,8 +11,8 @@ type Data = {
 
 export class GenerateController {
   constructor(protected service: GenerateTemplateService) {}
-  public async handler(data: Data): Promise<IHttpResponse<null>> {
-    await this.service.generate(data);
-    return Ok(null);
+  public async handler(data: Data): Promise<IHttpResponse<string>> {
+    const ziped = await this.service.generate(data);
+    return Ok(ziped);
   }
 }

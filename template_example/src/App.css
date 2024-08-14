@@ -1,0 +1,25 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.main {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: center;
+  justify-content: center;
+}
+
+.main h1 {
+  font-size: 4em;
+  text-transform: uppercase;
+}
+
+.main h2 {
+  font-size: 1.6em;
+  text-transform: uppercase;
+}
